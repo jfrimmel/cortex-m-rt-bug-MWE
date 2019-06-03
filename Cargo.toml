@@ -1,0 +1,12 @@
+[package]
+name = "cortex-m-rt-bug-mwe"
+version = "0.1.0"
+authors = ["Julian Frimmel <julian.frimmel@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+cortex-m-rt = "0.6.8"
+
+[profile.dev]
+opt-level = 0
+
