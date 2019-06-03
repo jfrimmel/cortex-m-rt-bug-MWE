@@ -1,0 +1,79 @@
+
+target/thumbv6m-none-eabi/release/cortex-m-rt-bug-mwe:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+000000c0 <main>:
+  c0:	2001      	movs	r0, #1
+  c2:	0280      	lsls	r0, r0, #10
+  c4:	4903      	ldr	r1, [pc, #12]	; (d4 <_stext+0x14>)
+  c6:	780a      	ldrb	r2, [r1, #0]
+  c8:	1c52      	adds	r2, r2, #1
+  ca:	700a      	strb	r2, [r1, #0]
+  cc:	1c49      	adds	r1, r1, #1
+  ce:	1e40      	subs	r0, r0, #1
+  d0:	d1f9      	bne.n	c6 <main+0x6>
+  d2:	e7fe      	b.n	d2 <main+0x12>
+  d4:	20000000 	.word	0x20000000
+
+000000d8 <Reset>:
+  d8:	f000 f81f 	bl	11a <DefaultPreInit>
+  dc:	4809      	ldr	r0, [pc, #36]	; (104 <Reset+0x2c>)
+  de:	490a      	ldr	r1, [pc, #40]	; (108 <Reset+0x30>)
+  e0:	4281      	cmp	r1, r0
+  e2:	d203      	bcs.n	ec <Reset+0x14>
+  e4:	2200      	movs	r2, #0
+  e6:	c104      	stmia	r1!, {r2}
+  e8:	4281      	cmp	r1, r0
+  ea:	d3fb      	bcc.n	e4 <Reset+0xc>
+  ec:	4807      	ldr	r0, [pc, #28]	; (10c <Reset+0x34>)
+  ee:	4908      	ldr	r1, [pc, #32]	; (110 <Reset+0x38>)
+  f0:	4281      	cmp	r1, r0
+  f2:	d204      	bcs.n	fe <Reset+0x26>
+  f4:	4a07      	ldr	r2, [pc, #28]	; (114 <Reset+0x3c>)
+  f6:	ca08      	ldmia	r2!, {r3}
+  f8:	c108      	stmia	r1!, {r3}
+  fa:	4281      	cmp	r1, r0
+  fc:	d3fb      	bcc.n	f6 <Reset+0x1e>
+  fe:	f7ff ffdf 	bl	c0 <main>
+ 102:	defe      	udf	#254	; 0xfe
+ 104:	20000400 	.word	0x20000400
+ 108:	20000000 	.word	0x20000000
+ 10c:	20000000 	.word	0x20000000
+ 110:	20000000 	.word	0x20000000
+ 114:	00000134 	.word	0x00000134
+
+00000118 <DefaultHandler_>:
+ 118:	Address 0x0000000000000118 is out of bounds.
+
+
+00000119 <DefaultHandler>:
+ 119:	Address 0x0000000000000119 is out of bounds.
+
+
+0000011a <DefaultPreInit>:
+ 11a:	Address 0x000000000000011a is out of bounds.
+
+
+0000011b <__pre_init>:
+ 11b:	Address 0x000000000000011b is out of bounds.
+
+
+0000011c <HardFaultTrampoline>:
+ 11c:	4670      	mov	r0, lr
+ 11e:	2104      	movs	r1, #4
+ 120:	4208      	tst	r0, r1
+ 122:	d102      	bne.n	12a <HardFaultTrampoline+0xe>
+ 124:	f3ef 8008 	mrs	r0, MSP
+ 128:	e002      	b.n	130 <HardFault_>
+ 12a:	f3ef 8009 	mrs	r0, PSP
+ 12e:	e7ff      	b.n	130 <HardFault_>
+
+00000130 <HardFault_>:
+ 130:	Address 0x0000000000000130 is out of bounds.
+
+
+00000131 <HardFault>:
+ 131:	Address 0x0000000000000131 is out of bounds.
+
