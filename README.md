@@ -1,3 +1,8 @@
+___Note: this repository is no longer in use.
+The problem described below is not related to the `cortex-m-rt` crate or any software at all, but was related to an invalid stack pointer initialization (due to a preprogrammed bootloader).
+Refer to [this issue](https://github.com/rust-embedded/cortex-m-rt/issues/191) for details.
+I'll keep this repository online for reference (the description below is left unchanged).___
+
 # A MWE for a bug in `cortex-m-rt`
 
 _Disclaimer: I'm not sure, where the error is. I totally could be the case, that I'm using the `cortex-m-rt` crate wrong, so it's a layer 8 problem. That has to be confirmed._
